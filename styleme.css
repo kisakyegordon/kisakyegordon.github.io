@@ -1,0 +1,24 @@
+body {
+    font: "Trebuchet MS";
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+p {
+    color: aqua;
+}
+
+p::first-letter {
+    text-transform: capitalize;
+    font-size: 2em;
+}
+
+h3 {
+    color: purple;
+    font-size: 1.5em;
+}
