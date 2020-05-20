@@ -13,6 +13,9 @@ p {
     color: aqua;
 }
 
+.mood > p{
+    display: inline;
+}
 p::first-letter {
     text-transform: capitalize;
     font-size: 2em;
@@ -21,4 +24,8 @@ p::first-letter {
 h3 {
     color: purple;
     font-size: 1.5em;
+}
+
+footer p {
+    display: inline;
 }
