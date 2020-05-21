@@ -1,0 +1,135 @@
+/*
+
+Name: Gordon Kisakye
+ID: 611089
+
+*/
+
+body {
+    background-image: url("./background.png");
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 8pt;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+div.banner {
+    background-image: url("./bannerbg.png");
+    background-repeat: repeat-x;
+    text-align: center;
+}
+
+h1 {
+    text-shadow: 3px 3px #999;
+    font-size: 24pt;
+    font-weight: bold;
+    font-family: Tahoma, Verdana, sans-serif;
+    text-align: center;
+}
+
+section .main-section {
+    overflow: hidden;
+    width: 800px;
+    margin: 0 auto;
+    border: 4px solid grey;
+    border-radius: 20px;
+}
+
+
+.main-content {
+    width: 550px;
+    float: left;
+}
+
+.right-content {
+    width: 250px;
+    float: right;
+    background:  #A2B964;
+    overflow: hidden;
+}
+
+.right-content p {
+    font-family: Arial, sans-serif;
+    font-size: 8pt;
+}
+
+.right-content dl {
+    padding: 10pt;
+}
+
+.right-content dd ul {
+    padding: 0;
+}
+
+.right-content dd ul li {
+   list-style: none;
+}
+
+.rating {
+    background-image: url('./rbg.png');
+    background-repeat: repeat-x;
+    height: 83px;
+}
+
+.rating h2 {
+    font-size: 48pt;
+    color: red;
+    font-weight: bold;
+    display: inline;
+    vertical-align: top;
+}
+
+.review {
+    width: 47%;
+    margin: 1% 1% 2% 1%;
+    float: left;
+    padding: 8px;
+    box-sizing: border-box;
+    max-height: 145px;
+}
+
+.review-text {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    background: #E8DC9B;
+    min-height: 30px;
+}
+
+.review-author {
+    clear: both;
+}
+
+.review img:nth-child(1){
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 20pt;
+}
+
+.review img:nth-child(2) {
+    margin-right: 5px;
+}
+
+.review p {
+    font-style: italic;
+}
+
+.footer {
+    background: #A2B964;
+    text-align: center;
+    padding: 5px;
+    clear: both;
+}
+
+.ver-links {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    opacity: 0.5;
+}
