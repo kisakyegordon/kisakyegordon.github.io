@@ -1,0 +1,65 @@
+/*
+
+Name: Gordon Kisakye
+ID: 611089
+
+*/
+
+body {
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 14px;
+}
+
+fieldset {
+    padding: 14px;
+    margin: 8vh 5vw;
+}
+
+button {
+    background: #0087ff;
+    outline: none;
+    width: 110px;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 20px;
+    border: 1px solid #c2c2c2;
+}
+
+.terms {
+    margin: 8vh 5vw;
+}
+
+.terms label {
+    display: block;
+}
+
+fieldset input, select, textarea {
+    width: 35%;
+    margin: 1%;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 3px;
+    border:1px solid  #aaa;
+    transition: .3s;
+
+
+}
+
+fieldset label {
+    display: block;
+}
+
+fieldset label span {
+    width: 100px;
+    display: inline-block;
+}
+
+fieldset label span.ship {
+    vertical-align: top;
+}
+
+input[type="text"]:focus {
+    border:1px solid rgb(36, 36, 36);
+}
