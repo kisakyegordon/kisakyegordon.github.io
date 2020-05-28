@@ -1,0 +1,39 @@
+body {
+    background-color: #CCCCFF;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+p {
+    margin: 0;
+}
+
+header h2 {
+    font-size: 32pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+section, .controls {
+    text-align: center;
+}
+
+textarea {
+    height: 400px;
+    width: 90vw;
+    font-family: monospace;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+fieldset {
+    display: inline;
+    border: 5px solid black;
+}
+
+footer {
+    right: 0;
+    position: absolute;
+}
+
