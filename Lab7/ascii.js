@@ -1,85 +1,95 @@
-// import "./animations";
+"use script";
+const textarea_ascii = document.getElementById("textarea-ascii");
+const start_button = document.getElementById("start-button");
+const stop_button = document.getElementById("stop-button");
+const size_ascii = document.getElementById("size-ascii");
+const exercise_ascii = document.getElementById("exercise-ascii");
+const checkbox_ascii = document.getElementById("checkbox-ascii");
 
-function pageLoad() {
-    const textarea_ascii = document.getElementById("textarea-ascii");
-    const start_button = document.getElementById("start-button");
-    const stop_button = document.getElementById("stop-button");
-    const size_ascii = document.getElementById("size-ascii");
-    const exercise_ascii = document.getElementById("exercise-ascii");
-    const checkbox_ascii = document.getElementById("checkbox-ascii");
+stop_button.disabled = true;
 
-    start_button.onclick = handleStartEvent;
-    stop_button.onclick = handleStopEvent;
-    size_ascii.onchange = handleSizeEvent;
-    exercise_ascii.onchange = handleExerciseEvent;
-    checkbox_ascii.onclick = handleTurboEvent;
+start_button.onclick = handleStartEvent;
+stop_button.onclick = handleStopEvent;
+size_ascii.onchange = handleSizeEvent;
+exercise_ascii.onchange = handleExerciseEvent;
+checkbox_ascii.onclick = handleTurboEvent;
 
-    function handleStartEvent() {
-        console.log("This works");
-        var data = "";
-        var myVar = setInterval(frameCallBack, 1000);
+speed = 250;
+var index = 0;
 
-        function myTimer() {
-        var d = new Date();
-        var t = d.toLocaleTimeString();
-        document.getElementById("textarea-ascii").innerHTML = t;
-}
+function frameCallBack () {
+    const generatedFrames = ANIMATIONS[exercise_ascii.options[exercise_ascii.selectedIndex].value].split("=====\n");
+    textarea_ascii.value = generatedFrames[index];
 
-        // frameCreator(ANIMATIONS[exercise_ascii.options[exercise_ascii.selectedIndex].value]);
-
-        // const generatedFrames = ANIMATIONS[exercise_ascii.options[exercise_ascii.selectedIndex].value].split("=====\n");
-        // console.log("Broken Frame: ", generatedFrames);
-        // setInterval(frameCallBack , 500)
-
-
-        function frameCallBack () {
-            for (var i = 0; i < ANIMATIONS[exercise_ascii.options[exercise_ascii.selectedIndex].value].split("=====\n").length; i++) {
-                data = ANIMATIONS[exercise_ascii.options[exercise_ascii.selectedIndex].value].split("=====\n")[i];
-                document.getElementById("textarea-ascii").innerHTML = data;
-
-            }
-
-        }
-
-
-
-    }
-
-    function handleStopEvent() {
-        console.log("This stops");
-    }
-
-    function handleSizeEvent() {
-        console.log("This works", size_ascii.options[size_ascii.selectedIndex].value);
-    }
-
-    function handleExerciseEvent() {
-        console.log("Pat: ", ANIMATIONS[exercise_ascii.options[exercise_ascii.selectedIndex].value])
-        textarea_ascii.innerHTML = ANIMATIONS[exercise_ascii.options[exercise_ascii.selectedIndex].value];
-
-    }
-
-    function handleTurboEvent() {
-        console.log("This is Turbo", checkbox_ascii.checked)
-    }
-
-    function frameCreator(subject) {
-        const generatedFrames = subject.split("=====\n");
-        console.log("Broken Frame: ", generatedFrames);
-
-        function frameCallBack () {
-            for (let i = 0; i < generatedFrames.length; i++) {
-                document.getElementById("textarea-ascii").innerHTML = generatedFrames[i];
-            }
-            // textarea_ascii.innerHTML = "meme yange";
-            // console.log("meme yange")
-
-        }
-        window.setInterval(frameCallBack , 500)
+    if(index === generatedFrames.length - 1) {
+        index = 0;
+    } else {
+        index++;
     }
 }
 
+function handleStartEvent() {
 
+    myVar = setInterval(
+                frameCallBack,
+                speed
+            );
+    start_button.disabled = true;
+    exercise_ascii.disabled = true;
+    stop_button.disabled = false;
 
+}
 
-window.onload = pageLoad;
+function handleStopEvent() {
+    checkbox_ascii.checked = false;
+    window.clearInterval(myVar);
+    window.clearInterval(myVar);
+
+    textarea_ascii.value = textarea_ascii_prev !== undefined ? textarea_ascii_prev : "";
+    stop_button.disabled = true;
+    start_button.disabled = false;
+    exercise_ascii.disabled = false;
+}
+
+function handleSizeEvent() {
+    switch(size_ascii.options[size_ascii.selectedIndex].value) {
+        case 'Tiny':
+            textarea_ascii.style.fontSize = "7pt";
+            break;
+        case 'Small':
+            textarea_ascii.style.fontSize = "10pt";
+            break;
+        case 'Medium':
+            textarea_ascii.style.fontSize = "12pt";
+            break;
+        case 'Large':
+            textarea_ascii.style.fontSize = "16pt";
+            break;
+        case 'Extra-Large':
+            textarea_ascii.style.fontSize = "24pt";
+            break;
+        case 'XXL':
+            textarea_ascii.style.fontSize = "32pt";
+            break;
+        default:
+            break;
+    }
+}
+
+function handleExerciseEvent() {
+    textarea_ascii_prev = textarea_ascii.value;
+    textarea_ascii.value = ANIMATIONS[exercise_ascii.options[exercise_ascii.selectedIndex].value];
+}
+
+function handleTurboEvent() {
+    console.log("This is Turbo", checkbox_ascii.checked);
+    if (checkbox_ascii.checked === true) {
+        speed = 50;
+        handleStartEvent();
+        
+    } else if(checkbox_ascii.checked === false) {
+        speed = 250;
+        handleStopEvent();
+        handleStartEvent();
+    }
+}
